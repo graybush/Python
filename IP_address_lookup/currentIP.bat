@@ -1,1 +1,1 @@
-python C:\Users\Owner\Documents\GitHub\Python\IP_address_lookup\currentIP.py
+python C:\Users\Owner\Documents\GitHub\Python\IP_address_lookup\currentIP.py http://checkip.dyndns.org/ C:\Users\Owner\Dropbox\CurrentIP\currentIP.txt
