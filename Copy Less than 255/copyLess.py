@@ -1,3 +1,5 @@
+#!/bin/python
+
 """
 copyLess will take a directory to be copied and looks recursively for files.
 If any files are found that after being copied will have paths greater than 255 characters,
@@ -109,7 +111,7 @@ def prepare2rename(file_list):
     """
     to_rename_list = []
     for file in file_list:
-        file_path = file[0] + '\\' + file[1]
+        file_path = os.path.join(file[0], file[1])
         a = (file_path, file[0] + file[0][len(os.path.dirname(os.path.dirname(file_path))):] + file[1][-4:], file[0])
         to_rename_list.append(a)
     return to_rename_list
