@@ -1,3 +1,5 @@
+#!/bin/python
+
 """
 copyLess will take a directory to be copied and looks recursively for files.
 If any files are found that after being copied will have paths greater than 255
