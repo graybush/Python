@@ -68,7 +68,7 @@ def return_contents(path, args):
         for root, dirs, files in os.walk(path):
             for file in files:
                 if file.endswith(".par2") or file.startswith("RARBG"):
-                    os.unlink(os.path.join(root ,file))
+                    os.unlink(os.path.join(root, file))
                 else:
                     file_list.append(os.path.join(root, file))
         return file_list
@@ -79,7 +79,7 @@ def return_contents(path, args):
             for file in files:
                 if file.endswith(".par2") or file.startswith("RARBG"):
                     print(file)
-                    os.unlink(os.path.join(root ,file))
+                    os.unlink(os.path.join(root, file))
                 else:
                     a = (root, file)
                     file_list.append(a)
@@ -124,8 +124,8 @@ def prepare2rename(file_list):
     for file in file_list:
         file_path = os.path.join(file[0], file[1])
         a = (file_path, file[0]
-            + file[0][len(os.path.dirname(os.path.dirname(file_path))):]
-            + file[1][-4:], file[0])
+             + file[0][len(os.path.dirname(os.path.dirname(file_path))):]
+             + file[1][-4:], file[0])
         to_rename_list.append(a)
     return to_rename_list
 
@@ -141,7 +141,7 @@ def renamer(to_rename_list):
     for rename_params in to_rename_list:
         path_length = len(rename_params[2])
         print(rename_params[0][path_length:] + ' >>> '
-            + rename_params[1][path_length:] + '\n')
+              + rename_params[1][path_length:] + '\n')
 
 
 def main():

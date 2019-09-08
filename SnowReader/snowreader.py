@@ -1,5 +1,3 @@
-__author__ = 'zbb0263'
-
 import csv
 import datetime
 import glob
@@ -12,12 +10,12 @@ def adTimestampToUnix(ad):
     return int(((ad / 10000000) - 11644473600))
 
 sourceDir = "//cedappidm03/MIIS_scripts/"
-destDir = "//cedappidm03/MIIS_scripts/New/CAGAD_Comp.csv"
-sourceFile = "//cedappidm03/MIIS_scripts/CAGAD_Comp_raw.csv"
-destFile = "//cedappidm03/MIIS_scripts/CAGAD_Comp.csv"
-Server = "CEDCAG82.cagdev.conagrafoodsdev.net"
+destDir = "//cedappidm03/MIIS_scripts/New/RAGAD_Comp.csv"
+sourceFile = "//cedappidm03/MIIS_scripts/RAGAD_Comp_raw.csv"
+destFile = "//cedappidm03/MIIS_scripts/RAGAD_Comp.csv"
+Server = "CEDRAG82.ragdev.dev.net"
 LDAPFilter = "(objectClass=computer)"
-LDAPAttributeList = "name,cagSAPCostCenter,cagDeptFunction,location,pwdLastSet,company,whenCreated"
+LDAPAttributeList = "name,ragSAPCostCenter,ragDeptFunction,location,pwdLastSet,company,whenCreated"
 
 command = "csvde -f %s -s %s -r %s -l %s" % (sourceFile, Server, LDAPFilter, LDAPAttributeList)
 subprocess.check_call(command)
@@ -46,7 +44,7 @@ with open(sourceFile, 'rt') as file:
                 row = (row[0], whenCreated, row[2], pwdLastSet, row[4])
                 csvWrite.writerow(row)
 os.chdir(sourceDir)
-files = glob.glob("CAGAD_Comp_raw.csv")
+files = glob.glob("RAGAD_Comp_raw.csv")
 for filename in files:
     os.unlink(filename)
 shutil.copy2(destFile,destDir)
