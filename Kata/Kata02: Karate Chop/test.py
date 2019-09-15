@@ -31,6 +31,9 @@ class TestChop(unittest.TestCase):
         self.assertEqual(-1, chop(6, [1, 3, 5, 7]))
         self.assertEqual(-1, chop(8, [1, 3, 5, 7]))
 
+        with self.assertLogs('chop'):
+            chop('what', [1, 3, 5, 7])
+
 
 if __name__ == '__main__':
     unittest.main()
